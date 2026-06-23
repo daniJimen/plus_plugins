@@ -18,7 +18,6 @@ if (!builtInKotlinEnabled) {
 }
 
 kotlin {
-    jvmToolchain(17)
     compilerOptions {
         jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
@@ -41,8 +40,4 @@ android {
     lint {
         disable.addAll(listOf("InvalidPackage", "MissingPermission"))
     }
-}
-
-dependencies {
-    implementation("androidx.annotation:annotation:1.9.1")
 }

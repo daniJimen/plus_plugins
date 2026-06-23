@@ -1,3 +1,8 @@
+## 13.2.0
+
+ - **FEAT**(device_info_plus): Migrate to build-in kotlin
+ - **FEAT**(device_info_plus): Update android version to 2.4.0 and gradle to 8.14.5
+
 ## 13.1.0
 
  - **FEAT**(device_info_plus): Lower requirements to Dart 3.10 and Flutter 3.38.1 ([#3803](https://github.com/fluttercommunity/plus_plugins/issues/3803)). ([6d73e0d1](https://github.com/fluttercommunity/plus_plugins/commit/6d73e0d1035dd2c6b7fa6691dce4fca31c2a14f6))
