@@ -1,20 +1,6 @@
 group = "dev.fluttercommunity.plus.device_info"
 version = "1.0-SNAPSHOT"
 
-buildscript {
-    val kotlinVersion = "2.2.0"
-
-    repositories {
-        google()
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath("com.android.tools.build:gradle:8.12.1")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
-    }
-}
-
 allprojects {
     repositories {
         google()
@@ -24,12 +10,17 @@ allprojects {
 
 plugins {
     id("com.android.library")
-    id("kotlin-android")
+}
+
+val builtInKotlinEnabled = project.findProperty("android.builtInKotlin")?.toString()?.toBoolean() ?: false
+if (!builtInKotlinEnabled) {
+    apply(plugin = "org.jetbrains.kotlin.android")
 }
 
 kotlin {
+    jvmToolchain(17)
     compilerOptions {
-        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
 }
 
@@ -50,4 +41,8 @@ android {
     lint {
         disable.addAll(listOf("InvalidPackage", "MissingPermission"))
     }
+}
+
+dependencies {
+    implementation("androidx.annotation:annotation:1.9.1")
 }

@@ -1,7 +1,11 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
     id("dev.flutter.flutter-gradle-plugin")
+}
+
+val builtInKotlinEnabled = project.findProperty("android.builtInKotlin")?.toString()?.toBoolean() ?: false
+if (!builtInKotlinEnabled) {
+    apply(plugin = "org.jetbrains.kotlin.android")
 }
 
 kotlin {
